@@ -93,7 +93,6 @@ bool test_vector(char fault_at, int fault_type, int z_in){
                 value[layer_1[i][0]] = value_assign(layer_1[i][2], ' ',layer_1[i][1]);
             }
         }
-        // cout<<layer_1[i][0]<<" "<<value[layer_1[i][0]]<<endl;
     }
     for(int i = 0; i<layer_2.size(); ++i){
         char op = layer_2[i][1];
@@ -111,7 +110,6 @@ bool test_vector(char fault_at, int fault_type, int z_in){
                 value[layer_2[i][0]] = value_assign(layer_2[i][2], ' ',layer_2[i][1]);
             }
         }
-        // cout<<layer_2[i][0]<<" "<<value[layer_2[i][0]]<<endl;
     }
     for(int i = 0; i<layer_3.size(); ++i){
         char op = layer_3[i][1];
@@ -129,7 +127,6 @@ bool test_vector(char fault_at, int fault_type, int z_in){
                 value[layer_3[i][0]] = value_assign(layer_3[i][2], ' ',layer_3[i][1]);
             }
         }
-        // cout<<layer_3[i][0]<<" "<<value[layer_3[i][0]]<<endl;
     }
     // To print the Z(output) with fault, remove the comment from the below line
     // cout<<"Z(with fault): "<<value['Z']<<endl;
@@ -187,17 +184,16 @@ void solve(char fault_at, int fault_type, vector<vector<char>> circuit,int n)
         }
     }
 
-    // loop running 16 times for checking all the possible test cases for four inputs
-    // in the loop first all the values of all nodes are updated
-    // then test_vector function is called to check whether the vector we are having is 
-    // sufficient to check for that fault, if it is then true is returned and printed out, else False is returned 
-    // and False is printed out
+    /*loop running 16 times for checking all the possible test cases for four inputs
+    in the loop first all the values of all nodes are updated
+    then test_vector function is called to check whether the vector we are having is 
+    sufficient to check for that fault, if it is then true is returned and printed out, else False is returned 
+    and False is printed out
+    st is the string having each characted has the value A,B,C,D
+    will take respectively
+    */
     for(int i = 0; i<16; ++i){
         string st = test_vec[i];
-        // st is the string having each characted has the value A,B,C,D
-        // will take respectively
-        // to print the string used remove the comment from the below line
-        // cout<<"string: "<<st<<endl;
         value['A'] = int(st[0]) - 48;
         value['B'] = int(st[1]) - 48;
         value['C'] = int(st[2]) - 48;
@@ -358,12 +354,6 @@ int main()
             }
         }
     }
-    // for(auto it: circuit){
-    //     for(auto ir: it){
-    //         cout<<ir<<" ";
-    //     }
-    //     cout<<endl;
-    // }
     test_vec_gen();
     solve(fault_at,fault_type,circuit,n);
     
