@@ -194,6 +194,7 @@ void solve(char fault_at, int fault_type, vector<vector<char>> circuit,int n)
     */
     for(int i = 0; i<16; ++i){
         string st = test_vec[i];
+        cout<<st<<endl;
         value['A'] = int(st[0]) - 48;
         value['B'] = int(st[1]) - 48;
         value['C'] = int(st[2]) - 48;
@@ -243,7 +244,6 @@ void solve(char fault_at, int fault_type, vector<vector<char>> circuit,int n)
             }
             cout<<"],Z = ";
             cout<<value['Z']<<endl;
-            // cout<<endl;
             break;
         }
 
@@ -271,14 +271,12 @@ int main()
     vector<vector<string>> input(n);
     for(int i = 0; i<n ; ++i){
         string S, T;
-  
         getline(cin, S);
 
         while (S.length() == 0)
             getline(cin, S);
     
         stringstream X(S);
-    
         while (getline(X, T, ' ')) {
             input[i].push_back(T);
         }
@@ -356,6 +354,5 @@ int main()
     }
     test_vec_gen();
     solve(fault_at,fault_type,circuit,n);
-    
     return 0;
 }
